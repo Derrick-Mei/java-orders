@@ -1,4 +1,4 @@
-package com.lambdaschool.javaorders;
+package com.lambdaschool.javaorders.controllers;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
