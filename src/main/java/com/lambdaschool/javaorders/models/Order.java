@@ -6,16 +6,19 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "table")
+@Table(name = "orders")
 @Data
 public class Order
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long ordNum;
+    @Column(name = "ordnum")
+    private long id;
 
+    @Column(name = "ordamount")
     private double ordAmount;
 
+    @Column(name = "advanceamount")
     private double advanceAmount;
 
     @ManyToOne
@@ -28,6 +31,16 @@ public class Order
     @JsonIgnore
     private Agent agent;
 
+//    @ManyToOne
+//    @JoinColumn(name = "custcode", nullable = false)
+//    private Customer customer;
+//
+//    @ManyToOne
+//    @JoinColumn(name = "agentcode", nullable = false)
+//    private Agent agent;
+
+
+    @Column(name = "orddescription")
     private String ordDescription;
 
     public Order()
