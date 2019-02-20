@@ -8,6 +8,10 @@ import java.util.List;
 
 public interface AgentRepository extends JpaRepository<Agent, Long>
 {
-    @Query(value = "SELECT a.agentname, o.ordnum, o.orddescription FROM agents a LEFT JOIN orders o", nativeQuery = true)
+    @Query(value = "SELECT Concat('Agent Name: ', a.agentname), Concat('Customer Name: ', c.custname) FROM agents a, customers c WHERE a.agentcode = c.agentcode ORDER BY a.agentname", nativeQuery = true)
+    List<Object[]> findAgentsAndCustomers();
+
+    @Query(value = "SELECT CONCAT('Agent Name: ', a.agentname), CONCAT('OrderNum:   ', o.ordnum), CONCAT('OrdDesc:    ', o.orddescription) FROM agents a LEFT JOIN orders o ORDER BY a.agentname", nativeQuery = true)
     List<Object[]> findAgentsAndOrders();
+
 }

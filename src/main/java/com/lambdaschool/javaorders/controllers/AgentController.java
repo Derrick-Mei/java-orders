@@ -1,6 +1,5 @@
 package com.lambdaschool.javaorders.controllers;
 
-import com.lambdaschool.javaorders.models.Agent;
 import com.lambdaschool.javaorders.repository.AgentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -17,21 +16,22 @@ public class AgentController
     @Autowired
     AgentRepository agentrepos;
 
+//agents - Returns all agents with their customers
     @GetMapping("/agents")
-    public List<Agent> findAllAgents()
+    public List<Object[]> findAllAgents()
     {
-        return agentrepos.findAll();
+        return agentrepos.findAgentsAndCustomers();
     }
 
+//agents/orders - Return a list with the agents name and associated order number and order description
     @GetMapping("/agents/orders")
     public List<Object[]> findAgentsAndOrders()
     {
         return agentrepos.findAgentsAndOrders();
     }
 
+//agents/{agentcode} - Deletes an agent if they are not assigned to a customer or order (Stretch Goal)
+
 }
 
 
-//agents - Returns all agents with their customers
-//agents/orders - Return a list with the agents name and associated order number and order description
-//agents/{agentcode} - Deletes an agent if they are not assigned to a customer or order (Stretch Goal)
