@@ -31,15 +31,6 @@ public class Order
     @JsonIgnore
     private Agent agent;
 
-//    @ManyToOne
-//    @JoinColumn(name = "custcode", nullable = false)
-//    private Customer customer;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "agentcode", nullable = false)
-//    private Agent agent;
-
-
     @Column(name = "orddescription")
     private String ordDescription;
 
