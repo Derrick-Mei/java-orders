@@ -1,6 +1,5 @@
 package com.lambdaschool.javaorders.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -23,12 +22,12 @@ public class Order
 
     @ManyToOne
     @JoinColumn(name = "custcode", nullable = false)
-    @JsonIgnore
+//    @JsonIgnore
     private Customer customer;
 
     @ManyToOne
     @JoinColumn(name = "agentcode", nullable = false)
-    @JsonIgnore
+//    @JsonIgnore
     private Agent agent;
 
     @Column(name = "orddescription")
