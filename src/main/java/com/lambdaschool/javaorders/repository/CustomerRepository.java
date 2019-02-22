@@ -12,7 +12,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long>
     @Query(value = "" +
             "SELECT c.custname, o.ordnum " +
             "FROM customers c " +
-            "LEFT JOIN orders o",
+            "LEFT JOIN orders o ORDER BY c.custname",
             nativeQuery = true)
     public List<Object[]> findCustomersAndOrders();
 
@@ -24,11 +24,15 @@ public interface CustomerRepository extends JpaRepository<Customer, Long>
 //            "       WHERE o.custcode = :custcode " +
 //            "       ORDER BY o.ordnum",
 //            nativeQuery = true)
+//    @Query(value = "SELECT c.custname FROM customer AS c INNER JOIN orders as o WHERE c.custname = :name", nativeQuery = true)
 //    public List<Object[]> findByCustName(@Param("name") String name);
+
+    // doesn't work I need to troubleshoot this one
+    @Query(value = "SELECT * from orders WHERE orders.custcode IN (SELECT customers.custcode FROM customers LEFT JOIN orders ON customers.custcode = orders.custcode WHERE customers.custname LIKE %:name%)", nativeQuery = true)
+    public List<Object[]> findByCustName(@Param("name") String name);
 
     @Query(value = "Select * from orders WHERE orders.custcode IN (SELECT customers.custcode from customers LEFT JOIN orders ON customers.custcode = orders.custcode where orders.custcode = :custcode)", nativeQuery = true)
     List<Object[]> findCustOrdersByCustCode(@Param("custcode") long custcode);
 
-//    public void deleteCustomerById(long id);
 }
 
