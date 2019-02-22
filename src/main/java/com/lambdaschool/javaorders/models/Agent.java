@@ -1,8 +1,10 @@
 package com.lambdaschool.javaorders.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "agents")
@@ -25,6 +27,14 @@ public class Agent
     private String phone;
 
     private String country;
+
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "agent")
+    @JsonIgnore
+    private Set<Order> orders;
+
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "agent")
+    @JsonIgnore
+    private Set<Customer> customers;
 
     // default constructor for JPA
     public Agent()
