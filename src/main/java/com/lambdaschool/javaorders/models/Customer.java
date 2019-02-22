@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "customers")
@@ -13,7 +14,7 @@ public class Customer
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "custcode")
-    private long id;
+    private Long custCode;
 
     @Column(nullable = false, name = "custname")
     private String custName;
@@ -45,8 +46,12 @@ public class Customer
 
     @ManyToOne
     @JoinColumn(name = "agentcode", nullable = false)
-    @JsonIgnore
+//    @JsonIgnore
     private Agent agent;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    @JsonIgnore
+    private Set<Order> orders;
 
     public Customer()
     {
