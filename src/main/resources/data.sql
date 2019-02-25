@@ -11,22 +11,8 @@ INSERT INTO agents (agentcode, agentname, workingarea, commission, phone, countr
                    (6, 'McDen', 'London', 0.15, '078-22255588', ''),
                    (4, 'Ivan', 'Torento', 0.15, '008-22544166', ''),
                    (9, 'Benjamin', 'Hampshair', 0.11, '008-22536178', '');
-                   
-INSERT INTO orders (ordernum, ordamount, advanceamount, custcode, agentcode, orddescription)
-            VALUES (200100, 1000.00, 600.00, 13, 3, 'SOD'),
-                   (200110, 3000.00, 500.00, 19, 10, 'SOD'),
-                   (200107, 4500.00, 900.00, 7, 10, 'SOD'),
-                   (200112, 2000.00, 400.00, 16, 7, 'SOD'), 
-                   (200113, 4000.00, 600.00, 22, 2, 'SOD'),
-                   (200102, 2000.00, 300.00, 12, 12, 'SOD'),
-                   (200114, 3500.00, 2000.00, 2, 8, 'SOD'),
-                   (200122, 2500.00, 400.00, 3, 4, 'SOD'),
-                   (200118, 500.00, 100.00, 23, 6, 'SOD'),
-                   (200119, 4000.00, 700.00, 7, 10, 'SOD'),
-                   (200121, 1500.00, 600.00, 8, 4, 'SOD'),
-                   (200130, 2500.00, 400.00, 25, 11, 'SOD');
 
-INSERT INTO customer (custname, custcity, workingarea, custcountry, grade, openingamt, receiveamt, paymentamt, outstandingamt, phone, agentcode)
+INSERT INTO customers (custcode, custname, custcity, workingarea, custcountry, grade, openingamt, receiveamt, paymentamt, outstandingamt, phone, agentcode)
               VALUES (13, 'Holmes', 'London', 'London', 'UK', '2', 6000.00, 5000.00, 7000.00, 4000.00, 'BBBBBBB', 3),
                      (1, 'Micheal', 'New York', 'New York', 'USA', '2', 3000.00, 5000.00, 2000.00, 6000.00, 'CCCCCCC', 8),
                      (20, 'Albert', 'New York', 'New York', 'USA', '3', 5000.00, 7000.00, 6000.00, 6000.00, 'BBBBSBB', 8),
@@ -52,3 +38,17 @@ INSERT INTO customer (custname, custcity, workingarea, custcountry, grade, openi
                      (14, 'Rangarappa', 'Bangalore', 'Bangalore', 'India', '2', 8000.00, 11000.00, 7000.00, 12000.00, 'AAAATGF', 1),
                      (16, 'Venkatpati', 'Bangalore', 'Bangalore', 'India', '2', 8000.00, 11000.00, 7000.00, '12000.00', 'JRTVFDD', 7),
                      (11, 'Sundariya', 'Chennai', 'Chennai', 'India', '3', 7000.00, 11000.00, 7000.00, 11000.00, 'PPHGRTS', 10);
+
+INSERT INTO orders (ordnum, ordamount, advanceamount, custcode, agentcode, orddescription)
+            VALUES (200100, 1000.00, 600.00, 13, 3, 'SOD'),
+                   (200110, 3000.00, 500.00, 19, 10, 'SOD'),
+                   (200107, 4500.00, 900.00, 7, 10, 'SOD'),
+                   (200112, 2000.00, 400.00, 16, 7, 'SOD'),
+                   (200113, 4000.00, 600.00, 22, 2, 'SOD'),
+                   (200102, 2000.00, 300.00, 12, 12, 'SOD'),
+                   (200114, 3500.00, 2000.00, 2, 8, 'SOD'),
+                   (200122, 2500.00, 400.00, 3, 4, 'SOD'),
+                   (200118, 500.00, 100.00, 23, 6, 'SOD'),
+                   (200119, 4000.00, 700.00, 7, 10, 'SOD'),
+                   (200121, 1500.00, 600.00, 8, 4, 'SOD'),
+                   (200130, 2500.00, 400.00, 25, 11, 'SOD');
